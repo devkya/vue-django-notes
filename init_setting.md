@@ -1,5 +1,5 @@
 # Django & Vue 연동을 위한 세팅
-===============
+***
 ## Django
 1. Create Project
     ```bash
