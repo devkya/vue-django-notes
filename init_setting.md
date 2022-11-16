@@ -1,5 +1,5 @@
 # Django & Vue 연동을 위한 세팅
-## Django
+# Django
 1. Create Project
     ```bash
     git init
@@ -105,8 +105,8 @@
         ```
 
 ***
-## Vue.js
-### 기본 세팅
+# Vue.js
+## 기본 세팅
 1. NVM(Node Version Manager)  
     [git을 활용한 설치 방법](https://github.com/nvm-sh/nvm)
     ```bash
@@ -162,7 +162,7 @@
     ```
 4. `npm run lint`
 
-### vue.config.js
+## vue.config.js
 1. build 시 outputDir, assetsDir 수정
     ```javascript
     outputDir: 'dist', // default : 'dist'
