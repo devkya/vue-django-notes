@@ -169,5 +169,62 @@
 	publicPath: '/',   // default : '/'
 	assetsDir: 'static',
     ```
+2. devServer proxy 설정
+    ```javascript
+    devServer: {
+        proxy: 'http://localhost:8000',
+    }
+    ```
+    
+3. MPA 일 경우, pages option 추가
+    ```javascript
+    pages: {
+        index: {
+            entry: 'src/pages/main.js' // entry for the page
+            template: 'public/index.html' // output as dist
+            // when using title option,
+            // template title tag needs to be <title><%= htmlWebpackPlugin.options.title %></title>
+            title: 'Index Page',
+            // chunks to include on this page, by default includes
+            // extracted common chunks and vendor chunks.
+            chunks: ['chunk-vendors', 'chunk-common', 'index']
+        }
+    }
+    ```
+
+## 웹팩(Webpack) 설정
+> 웹팩이란 모듈 번들러이다.  
+> 서로 연관되어 있는 모듈 간의 관계를 해석하여(예, Components) 정적 자원으로 변환해주는 도구  
+> [VUE CLI 참고 링크](https://cli.vuejs.org/config/)
+
+1. `npm install filemanager-webpack-plugin --save-dev` -> vue.config.js 추가
+    ```javascript
+    const FileManagerPlugin = require('filemanager-webpack-plugin');
+
+	configureWebpack: {
+		plugins: [
+			new FileManagerPlugin({
+				events: {
+					onStart: {
+						delete: [
+							{ source: '../backend/templates/', options: { force: true } },
+							{ source: '../backend/static/', options: { force: true } },
+						],
+						mkdir: ['../backend/templates/', '../backend/static/'],
+					},
+					onEnd: {
+						copy: [
+							{ source: './dist/static', destination: '../backend/static/' },
+							{ source: './dist/*.html', destination: '../backend/templates/' },
+						],
+					},
+				},
+			}),
+		],
+	},
+    ```
+    
+
+
 
 
