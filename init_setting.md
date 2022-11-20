@@ -26,8 +26,8 @@
             "default": {
                 "ENGINE": "mssql",
                 "NAME": "RTDB",
-                "USER": "sa",
-                "PASSWORD": "devkya9465!",
+                "USER": "ID",
+                "PASSWORD": "password",
                 "HOST": "localhost",
                 "PORT": "1433",
             }
@@ -175,7 +175,7 @@
         proxy: 'http://localhost:8000',
     }
     ```
-    
+
 3. MPA 일 경우, pages option 추가
     ```javascript
     pages: {
