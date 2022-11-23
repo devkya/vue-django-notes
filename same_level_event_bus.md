@@ -6,12 +6,12 @@
 4. `Parent Component`에서 `this.$refs.ChildComponentRef.method(params)` 실행
 ***
 
->> ref를 사용하지 않는 것이 좋다고 하지만 부모 컴포넌트에서 자식 컴포넌트로 event 전달할 때는 사용해도 괜찮은것으로 판단함.
+> ref를 사용하지 않는 것이 좋다고 하지만 부모 컴포넌트에서 자식 컴포넌트로 event 전달할 때는 사용해도 괜찮은것으로 판단함.
 
->> 사실 하고 싶었던 것은 Vue 원칙에 어긋나지 않게 클릭 이벤트 발생시 부모 컴포넌트에서 props를 사용해 데이터를 전달하고 자식 컴포넌트는 `Computed or Watch`를 사용하여 데이터 변화를 관찰해 함수를 호출하고 싶었으나, 같은 메뉴를 클릭시 이벤트 호출이 되지 않고, ref를 사용하는 것보다 더 복작함.
+> 사실 하고 싶었던 것은 Vue 원칙에 어긋나지 않게 클릭 이벤트 발생시 부모 컴포넌트에서 props를 사용해 데이터를 전달하고 자식 컴포넌트는 `Computed or Watch`를 사용하여 데이터 변화를 관찰해 함수를 호출하고 싶었으나, 같은 메뉴를 클릭시 이벤트 호출이 되지 않고, ref를 사용하는 것보다 더 복작함.
 
 ## 내가 사용한 곳 
->> `App Bar`에서 메뉴 클릭시 `router-view`로 되어있는 형제 컴포넌트에 이벤트를 전달하고 스크롤되기 위해 사용함
+> `App Bar`에서 메뉴 클릭시 `router-view`로 되어있는 형제 컴포넌트에 이벤트를 전달하고 스크롤되기 위해 사용함
 
 ## 구성
 ### App Bar Component(Child Component)
@@ -19,7 +19,7 @@
 		<v-app-bar color="#494949" clipped-right app>
 			<v-icon class="px-5" dark large>mdi-basketball</v-icon>
 			<v-toolbar-title class="font-weight-bold text-h5" style="color: #fbbd28">
-				VUE - DJANGO WEB
+				VUE - DJANGO WEBx
 			</v-toolbar-title>
 			<v-spacer></v-spacer>
 			<!-- display breakpoint -->
