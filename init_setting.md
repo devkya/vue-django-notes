@@ -104,6 +104,13 @@
         )
         ```
 
+7. Time
+    ```python
+    # settings.py
+    TIME_ZONE = 'Asia/Seoul'
+    USE_TZ = False
+    ```
+
 ***
 # Vue.js
 ## 기본 세팅
