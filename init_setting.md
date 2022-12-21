@@ -1,4 +1,5 @@
 # Django & Vue 연동을 위한 세팅
+작성일자 : 2022-09-01
 # Django
 1. Create Project
     ```bash
