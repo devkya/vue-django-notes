@@ -1,7 +1,7 @@
 # Vuetify Component 정리
 ## v-pagination
 <p align="center">
-    <img src="./media/vuetify/pagination.png" alt="pagination" style="width: 400px" />
+    <img src="../assets/pagination.png" alt="pagination" style="width: 400px" />
 </p>
 
 > 긴 데이터 셋을 분리하는데 사용함.
