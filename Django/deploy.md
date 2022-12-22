@@ -4,11 +4,20 @@
 ### Web Server
 > 단순히 정적 파일을 응답
 
+
 ### WAS(Web Application Server)
 > 클라이언트 요청에 대해 동적인 처리가 이뤄진 후 응답
 
 ### WSGI(Web Server Gateway Interface)
->
+> CGI(Common Gateway Interface)의 일종으로 여러 언어 사용자들의 다양한 요청을 이해할 수 있도록 공통된 규칙으로 
+> 변환하는 관문 역할
+* CGI 기본 동작 과정
+    1. Input으로 HttpRequest를 받음
+    2. 요청에 대한 정보를 환경변수 형식으로 만들어 파이썬 스크립트의 stdin형식의 input으로 받음
+    3. 스크립트가 print와 같은 stdout 형식으로 응답하면 HTTP 형식으로 변환
+
+
+> Client 요청 -> CGI로 일관된 형태로 해석 -> WAS에서 처리
 
 ***
 
