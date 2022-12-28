@@ -52,6 +52,8 @@
             error_msg = 'Set the {} enviroment var'.format(setting) 
     ```
 4. settings.py -> base.py & develop.py & product.py 분리
+    * `backend > config > settings > base & develop & product.py`
+    
 5. static & media files
     ```python
     # settings.py
