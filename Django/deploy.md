@@ -166,6 +166,18 @@
 2. `python manage.py collecstatic`
 3. `backend.conf` 수정
 
+## Amazon RDS
+[참고 링크](https://bcp0109.tistory.com/357)
+1. RDS 데이터베이스 생성
+2. EC2 연결 -> 보안그룹 설정 잘 해야함 -> 아직 제대로 이해 못함 -> 링크 참고
+3. MYSQL Workbench를 사용하여 로컬 PC에서 접속
+    * Create Schema -> DATANASES -> Name 입력
+    
+4. EC2에서 접속
+    * `sudo apt-get update`
+    * `sudo apt-get install mysql-server`
+
+
 
 ## Domain 연결하기
 
