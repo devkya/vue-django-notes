@@ -114,18 +114,21 @@
 1. `pipenv install gunicorn` : 가상환경에 gunicorn 설치
 2. `vi /etc/systemd/system/gunicorn.service` : 서비스 등록(서버가 재시작될때 Gunicorn도 실햄되도록 설정)
     ```
-    [UNIT]
+    [Unit]
     Description=gunicron daemon
     After=network.target
 
     [Service]
     User=ubuntu
-    Group=ununtu
-    WorkingDirectory=/srv/Django-Deloyment/backend
-    ExecStart=/home/ubuntu/.local/share/virtualenvs/Django-Deloyment-7ElGeabW/gunicorn --bind 0.0.0.0:8000 backend.wsgi:application
+    Group=ubuntu
+    WorkingDirectory=/srv/CSound-Web/backend
+    ExecStart=/home/ubuntu/.local/share/virtualenvs/CSound-Web-vFwpSlqx/bin/gunicorn \
+            --bind unix:/tmp/gunicorn.sock \
+            backend.wsgi:application
 
     [Install]
     WantedBy=multi-user.target
+~
     ```
 3. `sudo systemctl daemon-reload` : 시스템 데몬 재시작
     ```
@@ -154,13 +157,20 @@
         server_name *.compute.amazonaws.com;
         charset utf-8;
         client_max_body_size 128M;
- 
-    location / {
-        proxy_pass  http://0.0.0.0:8000;
+
+        location / {
+            include proxy_params;
+            proxy_pass http://unix:/tmp/gunicorn.sock;
+            }
+        location /static/ {
+            alias /srv/CSound-Web/backend/static/;
+        }
+
+        location /media/ {
+            alias /srv/CSound-Web/backend/media/;
+            autoindex on;
         }
     }
-
-
     ```
 4. `sudo cp -f /srv/Django-Deloyment/backend/.confing/nginx/backend.conf /etc/nginx/sites-available/backend.conf` => `git pull` 이후 폴더에 있는 conf 파일 복사
 5. `sudo ln /etc/nginx/sites-available/backend.conf  /etc/nginx/sites-enabled/backend.conf` => `sites-enabled`로 링크
@@ -186,3 +196,6 @@
 
 ## Domain 연결하기
 
+## Https 적용
+1. `AWS Certificate Manager` 서비스
+2. 
