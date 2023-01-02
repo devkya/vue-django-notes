@@ -102,6 +102,11 @@
 1. `pyenv install [version]` : 해당하는 파이썬 버전 install
 2. `pyenv local [installed version]` 버젼 변경
 3. `pipenv install` : 프로젝트에 생성되어있는 pipfile install
+    * `mysql-client` error 발생 시 : 
+    ```
+    # Debian, Ubuntu 계열
+    sudo apt-get install python3-dev default-libmysqlclient-dev build-essential
+    ```
 4. `pipenv shell` : pipenv 가상환경 실행
 
 
@@ -133,6 +138,7 @@
     ```
 
 4. error 로그는 `/var/log/syslog`에서 확인 가능
+5. nginx error log는 `/var/log/nginx/error.log` 에서 확인 가능
 
 ## EC2 보안 그룹
 1. 포트를 열기 위해 `보안 그룹` => `Edit indound rules` => Custom TCP 8000 port 추가
@@ -176,8 +182,7 @@
 4. EC2에서 접속
     * `sudo apt-get update`
     * `sudo apt-get install mysql-server`
-
-
+    * `mysql -u [user] -p --gost [end point]
 
 ## Domain 연결하기
 
