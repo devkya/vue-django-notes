@@ -81,7 +81,7 @@
 
 2. EC2 서버에 원격으로 접속하기
     1. `ssh -i [키페어 경로] [유저 이름]@[퍼블릭 DNS 주소]`
-        * init user name : ununtu   
+        * init user name : ubuntu   
         * public DNS Address : 생성된 인스턴스에서 확인 가능
         
 
@@ -194,8 +194,10 @@
     * `sudo apt-get install mysql-server`
     * `mysql -u [user] -p --gost [end point]
 
+## `git pull`
+* `$ find . -name "*.pyc" -exec rm -f {} \;` : pyc 파일 제거
 ## Domain 연결하기
 
 ## Https 적용
 1. `AWS Certificate Manager` 서비스
-2. 
+2. fin
