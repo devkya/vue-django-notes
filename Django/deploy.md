@@ -95,6 +95,8 @@
     1. `sudo chown -R ubuntu:ununtu /srv/` : 클론을 위해 폴더 소유자 변경
     2. `cd /srv`
     3. `git clone [레포지토리 주소]`
+    4. `git pull`시 pyc 파일로 인해 안되는 경우 
+        * `$ find . -name "*.pyc" -exec rm -f {} \;` : pyc 파일 제거
 
 
 ## pyenv & pipenv
@@ -177,10 +179,12 @@
 6. `sudo service nginx restart`
 6. 데몬 새로 고침(daemon-reload) 후 `gunicorn` 다시 실행
 
+
 ## STATIC & MEDIA
 1. `STATIC_ROOT = os.path.join(BASE_DIR, 'static')` : `settings.py` 추가
 2. `python manage.py collecstatic`
 3. `backend.conf` 수정
+
 
 ## Amazon RDS
 [참고 링크](https://bcp0109.tistory.com/357)
@@ -194,10 +198,29 @@
     * `sudo apt-get install mysql-server`
     * `mysql -u [user] -p --gost [end point]
 
-## `git pull`
-* `$ find . -name "*.pyc" -exec rm -f {} \;` : pyc 파일 제거
+
 ## Domain 연결하기
+1. 도메인 구입
+2. `AWS Route 53` 호스팅 영역 생성
+3. 레코드 세트 생성 -> `EC2 인스턴스 public ip` 값에 추가
+4. NS 유형 레코드 선택 -> 값에 있는 네임서버를 도메인 네임서버에 등록
+5. `settings.py` `ALLOWED_HOST` 도메인 추가
+6. `/etc/nginx/sites-avaliable/backend.conf` `server_name` 수정
+
 
 ## Https 적용
 1. `AWS Certificate Manager` 서비스
-2. fin
+2. 인증서 요청 -> 도메인 이름 추가
+3. `Route 53` 레코드 생성
+4. `Instance Target Group` 생성 -> EC2 인스턴스 선택
+5. `EC2 로드 밸런서` 접속 & 로드 밸런서 생성
+6. Application Load Balancer 생성
+7. https 리스너 추가 & 가용 영역 전부 선택 & ACM 인증서 선택 & EC2 보안그룹 선택 -> 생성
+8. `Route 53` 유형 CNAME 선택 -> 별칭 선택 -> `Aplication/Classic Load Balancer` 선택 
+9. `/etc/nginx/sites-avaliable/backend.conf` 추가
+    ```
+      if ($http_x_forwarded_proto = 'http'){
+            return 301 https://$host$request_uri;
+    }
+    ```
+10. `sudo systemctl daemon-reload && sudo systemctl restart nginx gunicorn`
