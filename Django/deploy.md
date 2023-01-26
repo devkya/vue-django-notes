@@ -96,7 +96,8 @@
     2. `cd /srv`
     3. `git clone [레포지토리 주소]`
     4. `git pull`시 pyc 파일로 인해 안되는 경우 
-        * `$ find . -name "*.pyc" -exec rm -f {} \;` : pyc 파일 제거
+        * `find . -name "*.pyc" -exec rm -f {} \;` : pyc 파일 제거
+        * `find . -path "*/migrations/*.py" -not -name "__init__.py" -delete` migrations file 제거
 
 
 ## pyenv & pipenv
