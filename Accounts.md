@@ -32,5 +32,15 @@
 1. `access token`을 in-memory에 저장함(front-end variable 저장) -> 탭 전환 및 새로고침 시에 사라짐
 2. `refresh token`을 쿠키 또는 `localStorage`에 저장함 -> `access token`이 사라지거나 만료되었을 때, `/refresh-token` 엔드포인트로 보내고 새로운 `access token`을 받음 
 
+## 다른 도메인으로 Credentials 보내기
+> vuejs `index.html`를 빌드하기 전까지는 vuejs와 django의 도메인이 다름.  
+> 기본적으로 브라우저가 제공하는 요청 API들은 별도의 옵션 없이 브라우저의 쿠키와 같은 인증과 관련된 데이터를 함부로 요청 데이터에 담지 않도록 되어있음.   
+>따라서 백엔드에서 Set-Cookie를 Response에 담아도, 프론트엔드 단에서 설정되지 않음.
+### 해결 방법
+>`withCredentials` 옵션을 `true` 설정하면 된다. 이 옵션은 다른 도메인(Cross Origin)에 요청을 보낼 때 요청에 인증 정보를 담아서 보낼 지를 결정하는 옵션임
+* `withCredentials` 옵션 `true` 설정
+* 백엔드와 프론트엔드 둘다 `Access-Control-Allow-Credentials` 헤더를 `true` 설정
+
 # 문제점
 1. 내가 필요한건 kakao/login/finish/ response 이나 kakao/callback/ response를 받음
+    * kakao/login/finish/ 를 redirect_url로 설정한 후 오버라이딩 하는 방법은?

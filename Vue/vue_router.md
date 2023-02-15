@@ -1,4 +1,13 @@
 # Vue-Router
+## Intro
+* 서버 라우팅
+	- 주소 변경 시 화면이 갱신됨 
+	- 네이버, 구글 ...
+* 브라우져 라우팅
+	- 화면에 필요한 데이터만 요청하여 부분적으로 갱신함
+	- 구글메일, 트렐로 ...
+> Vue.js는 기본적으로 SPA(Single Page Application)으로 `vue-router`를 사용해서 구현함
+
 ## Watch
 > $route를 이용하여 route의 변화를 감지하여 함수를 실행할 수 있음  
 > handler 속성의 경우 route의 변화를 감지하여 해당 이름의 함수를 실행, immediate 속성은 즉시 실행  
