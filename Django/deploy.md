@@ -225,3 +225,20 @@
     }
     ```
 10. `sudo systemctl daemon-reload && sudo systemctl restart nginx gunicorn`
+
+# Vite & Django 배포하기
+> `vue-cli`를 사용할 때에는 Webpack을 이용해 빌드했지만 `vite`를 사용하여 더욱 > 편하게 할 수 있음. `django-vite` 라이브러리도 있지만 사용 방법을 잘 모르겠음...
+
+## `django-vite` library
+> Intergration of ViteJS in a Djnago project
+
+1. `pipenv install django-vite`
+2. App 추가
+    ```python
+    INSTALLED_APPS = [
+        ...
+        'django_vite',
+        ...
+    ]
+    ```
+3. 
