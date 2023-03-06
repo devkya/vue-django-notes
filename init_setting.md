@@ -234,7 +234,6 @@
 	},
     ```
     
-
-
-
-
+## Vite + Vue3 + Vuetify3
+* [프로젝트 세팅](https://www.youtube.com/watch?v=To5XzHlTS_E)
+* `npm install --save-dev @types/node` -> @ 사용하기
